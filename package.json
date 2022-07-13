@@ -1,6 +1,6 @@
 {
 	"name": "node-lanyard",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"main": "./lib/index.js",
 	"type": "module",
 	"license": "MIT",
@@ -39,5 +39,9 @@
 		"lib",
 		"typings"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cramatsu/node-lanyard"
+	},
 	"types": "./typings/index.d.ts"
 }

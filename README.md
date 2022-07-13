@@ -3,6 +3,8 @@ A simple Lanyard wrapper
 
 ### This library supports REST & Websocket!
 
+## ⚠️ Attention! This library uses ES modules.
+
 # Examples
 
 ## Websocket
