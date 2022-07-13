@@ -1,0 +1,23 @@
+# The heaviest object in our universe
+node_modules/
+
+# Logs
+*.ds.ts
+*.log
+logs
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Trash & IDEs & OS Files
+.tmp/
+.idea
+.DS_STORE
+.vscode
+lib/
+
+
+# npm pack file for library testing
+*.tgz
