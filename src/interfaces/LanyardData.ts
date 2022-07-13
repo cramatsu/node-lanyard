@@ -22,6 +22,11 @@ export interface LanyardData {
 	active_on_discord_desktop: boolean;
 }
 
+export interface LanyardRest {
+	success: boolean;
+	data: LanyardData;
+}
+
 export interface Spotify {
 	track_id: string;
 	timestamps: Timestamps;

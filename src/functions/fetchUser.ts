@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import type { LanyardData } from '../interfaces/LanyardData.js';
+import type { LanyardData, LanyardRest } from '../interfaces/LanyardData.js';
 import { LanyardOptions } from '../other/constats.js';
 
 /**
@@ -23,5 +23,5 @@ export const fetchUser = async (id: string): Promise<LanyardData | undefined> =>
 
 	if (response.status === 404) return undefined;
 
-	return (await response.json()) as LanyardData;
+	return ((await response.json()) as LanyardRest).data;
 };

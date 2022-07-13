@@ -13,11 +13,18 @@ declare module 'node:events' {
 	}
 }
 
+export function fetchUser(id: string): Promise<Lanyard.LanyardData | undefined>;
+
 export namespace Lanyard {
 	export interface LanyardWebsocketData {
 		op: WebSocketOpcode;
 		d: LanyardData;
 		t: LanyardEvent;
+	}
+
+	export interface LanyardRest {
+		success: boolean;
+		data: LanyardData;
 	}
 
 	export interface LanyardRestErrorData {
@@ -116,18 +123,19 @@ export namespace Lanyard {
 }
 
 export class LanyardWebsocket extends TypedEventEmitter {
-	public constructor(subscribeTo: string);
+	public constructor(subscribeTo: string | string[]);
 
 	public connect(): void;
 	public disconnect(): void;
 
-	private heartbeat(interval: number): NodeJS.Timer;
+	private heartbeat(interval: number): void;
 	private backOff(): number;
 	private onError(): void;
 	private onMessage(data: Buffer): void;
 	private onClose(): void;
 }
-export class TypedEventEmitter extends EventEmitter {
+
+declare class TypedEventEmitter extends EventEmitter {
 	emit<K extends keyof Lanyard.LanyardEvents>(event: K, ...args: Lanyard.LanyardEvents[K]): boolean;
 	emit<S extends string | symbol>(event: Exclude<S, keyof Lanyard.LanyardEvents>, ...args: unknown[]): boolean;
 
@@ -162,4 +170,4 @@ export class TypedEventEmitter extends EventEmitter {
 	removeAllListeners<S extends string | symbol>(event?: Exclude<S, keyof Lanyard.LanyardEvents>): this;
 }
 
-export type Awaitable<T> = T | PromiseLike<T>;
+type Awaitable<T> = T | PromiseLike<T>;

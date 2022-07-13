@@ -30,6 +30,11 @@
 		"prettier": "^2.7.1",
 		"typescript": "^4.7.4"
 	},
+	"keywords": [
+		"lanyard",
+		"wrapper",
+		"expose-profile"
+	],
 	"files": [
 		"lib",
 		"typings"

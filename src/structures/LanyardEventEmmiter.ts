@@ -5,7 +5,7 @@ export type Awaitable<T> = T | PromiseLike<T>;
 
 export class LanyardEventEmitter extends EventEmitter {
 	public override emit<K extends keyof LanyardEvents>(event: K, ...args: LanyardEvents[K]): boolean {
-		return super.emit(event, args);
+		return super.emit(event, ...args);
 	}
 
 	public override on<K extends keyof LanyardEvents>(
