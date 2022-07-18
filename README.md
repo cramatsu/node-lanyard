@@ -5,6 +5,8 @@ A simple Lanyard wrapper
 
 ## ⚠️ Attention! This library uses ES modules.
 
+
+`npm i node-lanyard`
 # Examples
 
 ## Websocket
