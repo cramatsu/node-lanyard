@@ -1,7 +1,7 @@
 import { ungzip } from 'pako';
 import WebSocket from 'ws';
 import { LanyardEventEmitter } from './LanyardEventEmmiter.js';
-import type { LanyardWebsocketData } from '../interfaces/LanyardData.js';
+import { LanyardWebsocketData, LanyardWebSocketOpcode } from '../interfaces/LanyardData.js';
 import { LanyardOptions } from '../other/constats.js';
 
 export class LanyardWebsocket extends LanyardEventEmitter {
@@ -54,7 +54,7 @@ export class LanyardWebsocket extends LanyardEventEmitter {
 
 		const received = JSON.parse(ungziped) as LanyardWebsocketData;
 
-		if (received.op === 1) {
+		if (received.op === LanyardWebSocketOpcode.HEARTBEAT) {
 			const heartbeatData = received.d as unknown as { heartbeat_interval: number };
 			this.heartbeat(heartbeatData.heartbeat_interval);
 			return;

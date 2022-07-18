@@ -17,7 +17,7 @@ export function fetchUser(id: string): Promise<Lanyard.LanyardData | undefined>;
 
 export namespace Lanyard {
 	export interface LanyardWebsocketData {
-		op: WebSocketOpcode;
+		op: LanyardWebSocketOpcode;
 		d: LanyardData;
 		t: LanyardEvent;
 	}
@@ -97,23 +97,13 @@ export namespace Lanyard {
 
 	export type Kv = Record<string, string>;
 
-	export type WebSocketOpcode =
-		/**
-		 * Event
-		 */
-		| 0
-		/**
-		 * Hello
-		 */
-		| 1
-		/**
-		 * Initialize
-		 * */
-		| 2
-		/**
-		 * Heartbeat
-		 * */
-		| 3;
+	export enum LanyardWebSocketOpcode {
+		EVENT = 0,
+		HELLO = 1,
+		INITIALIZE = 2,
+		HEARTBEAT = 3,
+	}
+
 	export type DiscordStatus = 'online' | 'idle' | 'dnd' | 'offline';
 	export type LanyardEvent = 'INIT_STATE' | 'PRESENCE_UPDATE';
 
