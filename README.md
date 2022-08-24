@@ -5,6 +5,7 @@ A simple Lanyard wrapper
 
 ## ⚠️ Attention! This library uses ES modules.
 
+Боже, что за хуйню я высрал.....
 
 `npm i node-lanyard`
 # Examples
